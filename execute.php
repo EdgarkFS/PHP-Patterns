@@ -1,7 +1,8 @@
 <?php
 
-use src\PatternsAutoloader;
+use PhpPatterns\PatternsAutoloader;
 
 include_once "vendor/autoload.php";
 
-$PatternsAutoloader = new PatternsAutoloader();
+$PatternsAutoloader = new PatternsAutoloader('f');
+$PatternsAutoloader->load();

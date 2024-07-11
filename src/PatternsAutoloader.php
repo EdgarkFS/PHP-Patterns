@@ -1,21 +1,28 @@
 <?php
 
-namespace src;
+namespace PhpPatterns;
 
 class PatternsAutoloader
 {
-    public function __construct(public string $patternName)
+    public function __construct(public string $patternName = '')
     {
 
     }
 
     public function load(): void
     {
-        $path = `Patterns/$this->patternName/$this->patternName.php`;
-        if(file_exists($path)){
-            include_once $path;
-            $patternClass = new $this->patternName();
-            $patternClass->init();
+        if ($this->patternName === '') {
+            throw new \Exception('Pattern name not specified');
         }
+
+        $path = `Patterns/$this->patternName/$this->patternName.php`;
+
+
+        if($path || !file_exists($path)){
+            throw new \Exception('Pattern file not found');
+        }
+
+        $patternClass = new $this->patternName();
+        $patternClass->init();
     }
 }

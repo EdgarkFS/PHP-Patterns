@@ -1,6 +1,6 @@
 <?php
 
-namespace src;
+namespace PhpPatterns;
 
 abstract class PatternExecuter
 {
