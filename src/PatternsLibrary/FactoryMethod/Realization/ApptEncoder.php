@@ -2,7 +2,7 @@
 
 namespace PhpPatterns\PatternsLibrary\FactoryMethod\Realization;
 
-abstract class SeniorWorkerClass
+abstract class ApptEncoder
 {
-    abstract public function work();
+    abstract public function encode(): string;
 }
